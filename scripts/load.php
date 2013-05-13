@@ -4,7 +4,9 @@ if(isset($_GET['pass'])) {
     $filename = "../saves/".$_GET['pass'].".txt";
     
     if(strlen($_GET['pass']) != 5 || !file_exists($filename)) {
-        echo 'alert("Invalid save code. Please try again."); var load = { loadSave : function() { } }';
+        echo 'alert("Invalid save code. Please try again.");';
+        echo 'window.location = "index.php";';
+        echo 'var load = { loadSave : function() { } }';
         die();
     }
     

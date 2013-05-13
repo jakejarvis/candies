@@ -1,4 +1,6 @@
 <?php
+    if($_POST && sizeof($_POST) == 88) {
+
     $code = md5(md5(mt_rand()) . md5("scribscrab" + mt_rand(0, mt_rand())));
     $code = substr($code, mt_rand(0, 20), 5);
     
@@ -11,4 +13,8 @@
     fclose($fh);
     
     echo $code;
+    
+    } else {
+        echo "error";
+    }
 ?>

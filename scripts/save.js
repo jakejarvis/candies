@@ -104,7 +104,7 @@ function save() {
         }else{
 
             code = msg.substring(0,5);
-            alert('You saved successfully under the name "' + msg + '". Write this down somewhere, you will need it later!');
+            alert('You saved successfully under the code "' + msg + '". Write this down somewhere, you will need it later!');
             $("span#save").html("&nbsp;&nbsp;&nbsp;&nbsp;You can also bookmark <a href=\"/index.php?pass=" + code + "\">this link</a> to load the save.");
 
         }
