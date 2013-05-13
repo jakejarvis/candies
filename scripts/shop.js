@@ -20,7 +20,7 @@ var shop = {
         if(candies.nbrOwned >= this.oneLollipopPrice){
             this.setShown(true);
         }
-        if(candies.nbrOwned >= 150){
+        if(candies.nbrOwned >= 100){
             // If we don't have any sword and there's no sword to sell yet, we show the wooden sword
             if(sword.name == "none" && this.currentSwordButtonId == "none"){
                 this.showProduct("wooden_sword");
@@ -35,16 +35,16 @@ var shop = {
     clickedOnHat : function(){
         switch(this.ticklingStep){
             case 0:
-                this.setMerchantSpeech("Hey ! You touched my hat !");
+                this.setMerchantSpeech("Hey! You touched my hat!");
             break;
             case 1:
-                this.setMerchantSpeech("Stop that, stop that ! You're tickling me !");
+                this.setMerchantSpeech("Stop that, stop that! You're tickling me!");
             break;
             case 2:
-                this.setMerchantSpeech("Hahahaha ! I'm so ticklish !");
+                this.setMerchantSpeech("Hahahaha! I'm so ticklish!");
             break;
             case 3:
-                this.setMerchantSpeech("Listen, listen : I give you 100 candies ! But stop that please !");
+                this.setMerchantSpeech("Listen, listen: I will give you 100 candies! But stop that please!");
                 candies.setNbrOwned(candies.nbrOwned + 100);
             break;
         }
@@ -63,20 +63,20 @@ var shop = {
         if(this.clickingOnLollipopStep <= 4){
             this.oneLollipopPrice = 60;
             this.tenLollipopsPrice = 500;
-            htmlInteraction.setInnerHtml("buy_1_lollipop", "Buy a lollipop (60 candies)");
-            htmlInteraction.setInnerHtml("buy_10_lollipops", "Buy 10 lollipop (500 candies)");
+            htmlInteraction.setInnerHtml("buy_1_lollipop", "Buy <b><span style=\"color:#79ad36\">1</span> lollipop</b> (<b><span style=\"color:#79ad36\">60</span> candies</b>)");
+            htmlInteraction.setInnerHtml("buy_10_lollipops", "Buy <b><span style=\"color:#79ad36\">10</span> lollipops</b> (<b><span style=\"color:#79ad36\">500</span> candies</b>)");
         }
         else if(this.clickingOnLollipopStep >= 5 && this.clickingOnLollipopStep < 15){
             this.oneLollipopPrice = 60 - (this.clickingOnLollipopStep - 4);
             this.tenLollipopsPrice = 500 - (this.clickingOnLollipopStep - 4) * 5;
-            htmlInteraction.setInnerHtml("buy_1_lollipop", "Buy a lollipop (" + this.oneLollipopPrice + " candies)");
-            htmlInteraction.setInnerHtml("buy_10_lollipops", "Buy 10 lollipop (" + this.tenLollipopsPrice + " candies)");
+            htmlInteraction.setInnerHtml("buy_1_lollipop", "Buy <b><span style=\"color:#79ad36\">1</span> lollipop</b> (<b><span style=\"color:#79ad36\">" + this.oneLollipopPrice + "</span> candies</b>)");
+            htmlInteraction.setInnerHtml("buy_10_lollipops", "Buy <b><span style=\"color:#79ad36\">10</span> lollipops</b> (<b><span style=\"color:#79ad36\">" + this.tenLollipopsPrice + "</span> candies</b>)");
         }
         else{
             this.oneLollipopPrice = 60 - (14 - 4);
             this.tenLollipopsPrice = 500 - (14 - 4) * 5;
-            htmlInteraction.setInnerHtml("buy_1_lollipop", "Buy a lollipop (" + this.oneLollipopPrice + " candies)");
-            htmlInteraction.setInnerHtml("buy_10_lollipops", "Buy 10 lollipop (" + this.tenLollipopsPrice + " candies)");
+            htmlInteraction.setInnerHtml("buy_1_lollipop", "Buy <b><span style=\"color:#79ad36\">1</span> lollipop</b> (<b><span style=\"color:#79ad36\">" + this.oneLollipopPrice + "</span> candies</b>)");
+            htmlInteraction.setInnerHtml("buy_10_lollipops", "Buy <b><span style=\"color:#79ad36\">10</span> lollipops</b> (<b><span style=\"color:#79ad36\">" + this.tenLollipopsPrice + "</span> candies</b>)");
         }
     },
     
@@ -86,16 +86,16 @@ var shop = {
         // Possibly change the merchant speech
         switch(this.clickingOnLollipopStep){
             case 1:
-                this.setMerchantSpeech("Hey ! Don't touch the products !");
+                this.setMerchantSpeech("Hey! Don't touch the products!");
             break;
             case 2:
                 this.setMerchantSpeech("Seriously, don't touch this lollipop.");
             break;
             case 3:
-                this.setMerchantSpeech("Don't touch it ! Other customers may lick it after that, that's gross !");
+                this.setMerchantSpeech("Don't touch it! Other customers may lick it after that, that's gross!");
             break;
             case 4:
-                this.setMerchantSpeech("Stop now or I'll be force to do something.");
+                this.setMerchantSpeech("Stop now or I'll be forced to do something.");
             break;
             case 15:
                 this.setMerchantSpeech("I can't make a lower price... Please stop.");
@@ -103,7 +103,7 @@ var shop = {
         }
         
         if(this.clickingOnLollipopStep >= 5 && this.clickingOnLollipopStep < 15){
-            this.setMerchantSpeech("Okay, okay, I lower the price, but stop touching it !");
+            this.setMerchantSpeech("Okay, okay, I'll lower the price, but stop touching it!");
         }
     },
     
@@ -113,7 +113,7 @@ var shop = {
             case "wooden_sword":
                 htmlInteraction.setInnerHtml("sword_with_button", sword.asciiWoodenSwordWithButton);
                 this.currentSwordButtonId = "buy_wooden_sword";
-                this.currentSwordPrice = 150;
+                this.currentSwordPrice = 100;
             break;
             case "copper_sword":
                 htmlInteraction.setInnerHtml("sword_with_button", sword.asciiCopperSwordWithButton);
@@ -147,7 +147,7 @@ var shop = {
         // We show the shop
         if(htmlInteraction.isElementVisible("shop") == false){ // If the shop isn't already visible
             htmlInteraction.setElementVisibility("shop", true);
-            this.setMerchantSpeech("Hello, I'm the candy merchant. I would do anything for candies. My lollipops are delicious!");
+            this.setMerchantSpeech(" Welcome to <b>Uncle Snake's Candy Emporium</b>! I would do anything for candies. My lollipops are delicious!");
         }
         
         // And the lollipop we can buy :)

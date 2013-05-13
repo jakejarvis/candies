@@ -41,9 +41,9 @@ var potions = {
         var text = "";
         
         // Potions
-        if(quest.berserk) text += "Berserk mode : " + quest.berserkCountdown + "\n";
-        if(quest.turtle) text += "You're a turtle : " + quest.turtleCountdown + "\n";
-        if(quest.invulnerability) text += "Invincible : " + quest.invulnerabilityCountdown + "\n";
+        if(quest.berserk) text += "Berserk mode: " + quest.berserkCountdown + "\n";
+        if(quest.turtle) text += "You're a turtle: " + quest.turtleCountdown + "\n";
+        if(quest.invulnerability) text += "Invincible: " + quest.invulnerabilityCountdown + "\n";
         if(this.list.health.shown || this.list.escape.shown || this.list.berserk.shown || this.list.majorHealth.shown || this.list.invulnerability.shown || this.list.turtle.shown || this.list.cloning.shown || this.list.superman.shown || this.list.gmooh.shown) text += "Potion countdown : " + quest.potionUseCountdown + "\n";
         
         // Scrolls
@@ -140,7 +140,7 @@ var potions = {
             if(quest.weAreQuestingRightNow == false || potion.nbrOwned <= 0 || ((potion.type == "potion" && quest.potionUseCountdown > 0) || (potion.type == "scroll" && quest.scrollUseCountdown > 0))) disabled = "disabled=disabled";
             if(quest.weAreQuestingRightNow == false) tooltip = "<span>" + potion.merchantSpeech + "</span>";
         
-            return "<button class=\"tooltip\" style=\"border: 2px solid " + potion.buttonColor + "; padding: 2px 5px;\" " + disabled  + " onclick=\"" + potion.action + "\">" + potion.buttonText + " (" + potion.nbrOwned + ")" + tooltip + "</button>\n";
+            return "<button class=\"tooltip potion_quest_button\" style=\"border: 2px solid " + potion.buttonColor + "; padding: 2px 5px;\" " + disabled  + " onclick=\"" + potion.action + "\"><b>" + potion.nbrOwned + "</b> " + potion.buttonText + tooltip + "</button>\n";
         }
         return "";
     },

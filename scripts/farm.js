@@ -29,16 +29,16 @@ var farm = {
         // Update on page
         switch(this.plantingButtonsStep){
             case 1:
-                htmlInteraction.setInnerHtml("lp_buttons", "<button class=\"home_button\" id=\"plant_1_lp\" onClick=\"farm.plantLollipops(1);\">Plant 1 lollipop</button>");
+                htmlInteraction.setInnerHtml("lp_buttons", "<button class=\"home_button\" id=\"plant_1_lp\" onClick=\"farm.plantLollipops(1);\">Plant <b><span style=\"color:#79ad36\">1</span> lollipop</b></button>");
             break;
             case 2:
-                htmlInteraction.setInnerHtml("lp_buttons", "Plant <button class=\"home_button\" id=\"plant_1_lp\" onClick=\"farm.plantLollipops(1);\">1</button><button class=\"home_button\" id=\"plant_10_lp\" onClick=\"farm.plantLollipops(10);\" style=\"visibility:hidden\">10</button> lp");
+                htmlInteraction.setInnerHtml("lp_buttons", "<b>Plant&nbsp;&nbsp;<button class=\"home_button\" id=\"plant_1_lp\" onClick=\"farm.plantLollipops(1);\"><b><span style=\"color:#79ad36\">1</span></b></button> <button class=\"home_button\" id=\"plant_10_lp\" onClick=\"farm.plantLollipops(10);\" style=\"visibility:hidden\"><b><span style=\"color:#79ad36\">10</span></b></button>&nbsp;&nbsp;lollipops</b>");
             break;
             case 3:
-                htmlInteraction.setInnerHtml("lp_buttons", "Plant <button class=\"home_button\" id=\"plant_1_lp\" onClick=\"farm.plantLollipops(1);\">1</button><button class=\"home_button\" id=\"plant_10_lp\" onClick=\"farm.plantLollipops(10);\" style=\"visibility:hidden\">10</button><button class=\"home_button\" id=\"plant_100_lp\" onClick=\"farm.plantLollipops(100);\" style=\"visibility:hidden\">100</button> lp");
+                htmlInteraction.setInnerHtml("lp_buttons", "<b>Plant&nbsp;&nbsp;<button class=\"home_button\" id=\"plant_1_lp\" onClick=\"farm.plantLollipops(1);\"><b><span style=\"color:#79ad36\">1</span></b></button> <button class=\"home_button\" id=\"plant_10_lp\" onClick=\"farm.plantLollipops(10);\" style=\"visibility:hidden\"><b><span style=\"color:#79ad36\">10</span></b></button> <button class=\"home_button\" id=\"plant_100_lp\" onClick=\"farm.plantLollipops(100);\" style=\"visibility:hidden\"><b><span style=\"color:#79ad36\">100</span></b></button>&nbsp;&nbsp;lollipops</b>");
             break;
             case 4:
-                htmlInteraction.setInnerHtml("lp_buttons", "Plant <button class=\"home_button\" id=\"plant_1_lp\" onClick=\"farm.plantLollipops(1);\">1</button><button class=\"home_button\" id=\"plant_10_lp\" onClick=\"farm.plantLollipops(10);\" style=\"visibility:hidden\">10</button><button class=\"home_button\" id=\"plant_100_lp\" onClick=\"farm.plantLollipops(100);\" style=\"visibility:hidden\">100</button><button class=\"home_button\" id=\"plant_1000_lp\" onClick=\"farm.plantLollipops(1000);\" style=\"visibility:hidden\">1000</button> lp");
+                htmlInteraction.setInnerHtml("lp_buttons", "<b>Plant&nbsp;&nbsp;<button class=\"home_button\" id=\"plant_1_lp\" onClick=\"farm.plantLollipops(1);\"><b><span style=\"color:#79ad36\">1</span></b></button> <button class=\"home_button\" id=\"plant_10_lp\" onClick=\"farm.plantLollipops(10);\" style=\"visibility:hidden\"><b><span style=\"color:#79ad36\">10</span></b></button> <button class=\"home_button\" id=\"plant_100_lp\" onClick=\"farm.plantLollipops(100);\" style=\"visibility:hidden\"><b><span style=\"color:#79ad36\">100</span></b></button> <button class=\"home_button\" id=\"plant_1000_lp\" onClick=\"farm.plantLollipops(1000);\" style=\"visibility:hidden\"><b><span style=\"color:#79ad36\">1000</span></b></button>&nbsp;&nbsp;lollipops</b>");
             break;
         }
         
@@ -78,7 +78,7 @@ var farm = {
         this.lollipopsPlanted = value;
         
         // We update on page
-        htmlInteraction.setInnerHtml("lp_planted", "Lp planted : " + this.lollipopsPlanted);
+        htmlInteraction.setInnerHtml("lp_planted", "Lollipops planted:&nbsp;&nbsp;<b><span style=\"color:#79ad36\">" + numberWithCommas(this.lollipopsPlanted) + "</span></b>");
         
         // We re calculate stuff
         this.calculateLollipopsPerDay();
@@ -110,7 +110,7 @@ var farm = {
     
     setLollipopsProduction : function(value){
         this.lollipopsProduction = value;
-        htmlInteraction.setInnerHtml("lp_production", "Production : " + this.lollipopsProduction + " lp/" + this.productionDelayType);
+        htmlInteraction.setInnerHtml("lp_production", "Production rate:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b><span style=\"color:#79ad36\">" + numberWithCommas(this.lollipopsProduction) + "</span> lollipops/" + this.productionDelayType + "</b>");
     },
     
     setMaxLollipopsPerDay : function(value){

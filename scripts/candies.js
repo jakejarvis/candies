@@ -28,8 +28,8 @@ var candies = {
         }
         
         this.nbrOwned = value;
-        if(this.nbrOwned != 1) htmlInteraction.setInnerHtml("candies", "You have " + this.nbrOwned + " candies!");
-        else htmlInteraction.setInnerHtml("candies", "You have 1 candy!");
+        if(this.nbrOwned != 1) htmlInteraction.setInnerHtml("candies", "You have <b><span style=\"color:#79ad36\">" + numberWithCommas(this.nbrOwned) + "</span> candies</b>!");
+        else htmlInteraction.setInnerHtml("candies", "You have <b><span style=\"color:#79ad36\">1</span> candy</b>!");
         buttons.checkCandies();
         shop.check();
         cauldron.updateActionsInfoOnPage();
@@ -37,8 +37,8 @@ var candies = {
     
     setNbrEaten : function(value){
         this.nbrEaten = value;
-        if(this.nbrEaten != 1) htmlInteraction.setInnerHtml("candies_eaten", "You have eaten " + this.nbrEaten + " candies!");
-        else htmlInteraction.setInnerHtml("candies_eaten", "You have eaten 1 candy!");
+        if(this.nbrEaten != 1) htmlInteraction.setInnerHtml("candies_eaten", "You have eaten <b><span style=\"color:#79ad36\">" + numberWithCommas(this.nbrEaten) + "</span> candies</b>!");
+        else htmlInteraction.setInnerHtml("candies_eaten", "You have eaten <b><span style=\"color:#79ad36\">1</span> candy</b>!");
         htmlInteraction.setElementVisibility("candies_eaten", true);
     },
     
@@ -61,8 +61,8 @@ var candies = {
         else if(this.nbrThrown <= 90) smiley = "...? <tt>:'(</tt>";
         else smiley = "...? <tt>(;_;)</tt>";
         
-        if(this.nbrThrown != 1) htmlInteraction.setInnerHtml("candies_thrown", "You threw " + this.nbrThrown + " candies on the ground" + smiley);
-        else htmlInteraction.setInnerHtml("candies_thrown", "You threw 1 candy on the ground" + smiley);
+        if(this.nbrThrown != 1) htmlInteraction.setInnerHtml("candies_thrown", "You have thrown <b><span style=\"color:#79ad36\">" + numberWithCommas(this.nbrThrown) + "</span> candies</b> on the ground" + smiley);
+        else htmlInteraction.setInnerHtml("candies_thrown", "You have thrown <b><span style=\"color:#79ad36\">1</span> candy</b> on the ground" + smiley);
         htmlInteraction.setElementVisibility("candies_thrown", true);
     },
     

@@ -13,7 +13,7 @@ var lollipops = {
             this.setNbrOwned(this.nbrOwned + 1);
             this.setNbrBought(this.nbrBought + 1);
             this.setNbrInStock(this.nbrInStock - 1);
-            shop.setMerchantSpeech("Thanks for buyin'! Here's your " + this.getFlavour() + " flavor lollipop.");
+            shop.setMerchantSpeech("Thanks for buyin'! Here's your " + this.getFlavour() + " flavored lollipop.");
         }
     },
     
@@ -23,7 +23,7 @@ var lollipops = {
             this.setNbrOwned(this.nbrOwned + 10);
             this.setNbrBought(this.nbrBought + 10);
             this.setNbrInStock(this.nbrInStock - 10);
-            shop.setMerchantSpeech("Thanks for buyin'! Here's your ten lollipops. Various flavours.");
+            shop.setMerchantSpeech("Thanks for buyin'! Here's your ten lollipops. Various flavors.");
         }
         else shop.setMerchantSpeech("I'm sorry, we don't have enough lollipops in stock to sell you ten of them. We currently have " + this.nbrInStock + " lollipops in stock.");
     },
@@ -72,8 +72,8 @@ var lollipops = {
     
     setNbrOwned : function(value){
         this.nbrOwned = value;
-        if(this.nbrOwned != 1) htmlInteraction.setInnerHtml("lollipops", "You have " + this.nbrOwned + " lollipops!");
-        else htmlInteraction.setInnerHtml("lollipops", "You have 1 lollipop!");
+        if(this.nbrOwned != 1) htmlInteraction.setInnerHtml("lollipops", "You have <b><span style=\"color:#79ad36\">" + numberWithCommas(this.nbrOwned) + "</span> lollipops</b>!");
+        else htmlInteraction.setInnerHtml("lollipops", "You have <b><span style=\"color:#79ad36\">1</span> lollipop</b>!");
         htmlInteraction.setElementVisibility("lollipops", true);
         buttons.checkLollipops();
         cauldron.updateActionsInfoOnPage();

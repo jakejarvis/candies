@@ -74,8 +74,6 @@ var buttons = {
 	        tabs.enable(0);
             tabs.enable(1);
             tabs.enable(2);
-            // And we show the switch tabs button
-            htmlInteraction.showButtonClass("toggle");
         }
     },
     
@@ -222,7 +220,7 @@ var buttons = {
                     shop.setBuy10LollipopsButtonShown(true);
                     if(htmlInteraction.isElementVisible("buy_10_lollipops") == false){ // If it wasn't shown yet
                         htmlInteraction.showButton("buy_10_lollipops");
-                        shop.setMerchantSpeech("There's now a discount for 10 lollipops! Buy them please.. I need candiiiies!");
+                        shop.setMerchantSpeech("There's now a discount on a pack of 10 lollipops! Buy them please... I need candiiiies!");
                     }
                     this.enableButton("buy_10_lollipops");
                 }

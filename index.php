@@ -2,27 +2,36 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<!-- You're looking at the source code, hm, cheater ! :-) -->
+<!-- Hmm, I see you looking at the source code....cheater! :-) -->
 
 <html>
     <head>
+        <!-- COMEUPOUTDAWAHTA -->
+        
+        <meta charset="utf-8">
+        
         <title>candy box!</title>
         
+        <!-- Custom favicon -->
+        <link rel="shortcut icon" href="favicon.ico">
+        
         <!-- Jquery and tab stuff -->
-        <script type="text/javascript" src="scripts/jquery-1.9.1.min.js"></script>
-        <script type="text/javascript" src="scripts/jquery-ui.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write(unescape('%3Cscript type="text/javascript" src="scripts/jquery-1.9.1.min.js"%3E%3C/script%3E'))</script> <!-- Google CDN Fallback -->
         <script type="text/javascript" src="scripts/tabs.js"></script>
         
         <!-- Modifications to some base js libs -->
         <script type="text/javascript" src="scripts/base_js_additions.js"></script>
+        <script type="text/javascript" src="scripts/commas.js"></script>
         
         <!-- Some tools which won't need any other js file -->
         <script type="text/javascript" src="scripts/htmlInteraction.js"></script>
         <script type="text/javascript" src="scripts/random.js"></script>
         <script type="text/javascript" src="scripts/speech.js"></script>
         
-        <!-- Loading and saving -->     
-        <?php if(isset($_GET['pass'])) { ?>"><script type="text/javascript" src="scripts/load.php?pass=<?php echo $_GET['pass'] ?>"></script><?php } ?>
+        <!-- Loading and saving --> 
+        <script type="text/javascript" src="scripts/loadPrompt.js"></script> 
+        <?php if(isset($_GET['pass'])) { ?><script type="text/javascript" src="scripts/load.php?pass=<?php echo $_GET['pass'] ?>"></script><?php } ?>
 		
         <!-- Buttons -->
         <script type="text/javascript" src="scripts/buttons.js"></script>
@@ -78,16 +87,22 @@
         <script type="text/javascript" src="scripts/candiesConverter.js"></script>
         <script type="text/javascript" src="scripts/cauldron.js"></script>
         <script type="text/javascript" src="scripts/computer.js"></script>
-
+        
+        <!-- Stay awake! -->
+        <script type="text/javascript" src="scripts/poke.js"></script>
+        
         <!-- The main js file which calls the other ones -->
         <script type="text/javascript" src="scripts/main.php<?php if(isset($_GET['pass'])) echo "?pass=" . $_GET['pass'] ?>"></script>
-		<script type="text/javascript" src="scripts/save.js"></script>
+        <script type="text/javascript" src="scripts/save.js"></script>
+        
+        <!-- Prettier fonts -->
+        <script type="text/javascript" src="http://use.typekit.com/zhe6udw.js"></script>
+        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
         
         <!-- Design -->
         <link rel="stylesheet" type="text/css" href="design.css"/>
     </head>
     <body>
-        <button class="toggle" style="visibility:hidden"></button>
         <!-- ******** -->
         <!-- TAB LIST -->
         <!-- ******** -->
@@ -130,7 +145,7 @@
 </pre>
         
                         <span id="lp_planted"></span><br/>
-                        <span id="lp_production"></span><br/>
+                        <span id="lp_production"></span><br/><br/>
                         <span id="lp_buttons"></span><br/><br/>
         
                     </span>
@@ -143,7 +158,8 @@
             <!-- Left panel : some stats, and the merchant -->
             
             <div>
-                <button class="home_button" id="saveButton" onClick="save();" style="visibility:visible">Save</button><span id="save"></span><br/><br/>
+                <button class="home_button" id="saveButton" onClick="save();" style="visibility:visible"><b>Save</b></button>
+                <button class="home_button" id="loadButton" onClick="loadPrompt();" style="visibility:visible"><b>Load</b></button><span id="save"></span><br/><br/>
                 <span id="candies"></span><br/>
                 <pre id="candies_converter" style="display:none">
   |
@@ -158,11 +174,11 @@
                 
                 <br/>
         
-                <button class="home_button" id="eat" onClick="candies.eat();" style="visibility:hidden">Eat all the candies</button><br/>
-                <button class="home_button" id="throw_10" onClick="candies.throw10Candies();" style="visibility:hidden">Throw 10 candies on the ground</button><br/>
-                <button class="home_button" id="encrust" onClick="sword.encrust();" style="visibility:hidden;">Use 101 candies to encrust your diamond sword and make it even more powerful</button>
-                <button class="home_button" id="polish" onClick="sword.polish();" style="visibility:hidden; display:none">Use 30 lollipops to make lollipop powder to polish your candy sword and make it awesome (and more powerful)</button>
-                <button class="home_button" id="coat" onClick="sword.coat();" style="visibility:hidden; display:none">Use 1 chocolate bar to coat your sword with melted chocolate and make it incredibly powerful</button><br/>
+                <button class="home_button" id="eat" onClick="candies.eat();" style="visibility:hidden">Eat <b><span style="color:#79ad36">all</span> the candies</b></button><br/>
+                <button class="home_button" id="throw_10" onClick="candies.throw10Candies();" style="visibility:hidden">Throw <b><span style="color:#79ad36">10</span> candies</b> on the ground</button><br/>
+                <button class="home_button" id="encrust" onClick="sword.encrust();" style="visibility:hidden;">Use <b><span style="color:#79ad36">101</span> candies</b> to encrust your diamond sword and make it even more powerful</button>
+                <button class="home_button" id="polish" onClick="sword.polish();" style="visibility:hidden; display:none">Use <b><span style="color:#79ad36">30</span> lollipops</b> to make lollipop powder to polish your candy sword and make it awesome (and more powerful)</button>
+                <button class="home_button" id="coat" onClick="sword.coat();" style="visibility:hidden; display:none">Use <b><span style="color:#79ad36">1</span> chocolate bar</b> to coat your sword with melted chocolate and make it incredibly powerful</button><br/>
 
 <pre id="shop" style="visibility:hidden; float:left;">
         <span onclick="shop.clickedOnHat();">.---.</span>
@@ -184,7 +200,7 @@
  \  /|##| o  |.|    /
   \/ \::|/\_ /  ---'|
   
-   The candy merchant
+      Uncle Snake
     
 <span id="merchant_speech"></span>
 </pre>
@@ -194,7 +210,7 @@
 <pre id="lollipop" style="visibility:hidden">
     _
    (<span onclick="shop.clickedOnLollipop();">_</span>)  <button class="home_button" id="buy_1_lollipop" onClick="lollipops.buy1();"></button>
-    |   <span id="lollipops_stock_shortage" style="visibility:hidden">Stock shortage : we will be restocked soon.</span>
+    |   <span id="lollipops_stock_shortage" style="visibility:hidden">Stock shortage: we will be restocked soon.</span>
     |   <button class="home_button" id="buy_10_lollipops" onClick="lollipops.buy10();" style="visibility:hidden"></button>
     |</pre>
         
@@ -203,17 +219,17 @@
 <pre id="products_after_swords" style="visibility:hidden; display:none">
         
     {}
-    )(   <button class="home_button" id="buy_health_potion" onClick="potions.buyPotion(potions.list.health, 600);">Buy a health potion (600 candies)</button>
+    )(   <button class="home_button" id="buy_health_potion" onClick="potions.buyPotion(potions.list.health, 600);">Buy <b><span style="color:#79ad36">1</span> health potion</b> (<b><span style="color:#79ad36">600</span> candies</b>)</button>
    (__)
    
     ()
-    ||   <button class="home_button" id="buy_escape_potion" onClick="potions.buyPotion(potions.list.escape, 150);">Buy an escape potion (150 candies)</button>
+    ||   <button class="home_button" id="buy_escape_potion" onClick="potions.buyPotion(potions.list.escape, 150);">Buy <b><span style="color:#79ad36">1</span> escape potion</b> (<b><span style="color:#79ad36">150</span> candies</b>)</button>
    (__)
 
     ,------.
    (_\      \
       |   c  |
-      | n    |  <button class="home_button" id="buy_scroll" onClick="potions.buyScroll(400);">Buy a scroll (400 candies)</button>
+      | n    |  <button class="home_button" id="buy_scroll" onClick="potions.buyScroll(400);">Buy <b><span style="color:#79ad36">1</span> scroll</b> (<b><span style="color:#79ad36">400</span> candies</b>)</button>
      _|   d  |
     (_/______/
 </pre>
@@ -234,7 +250,7 @@
         <div style="float:left">
             <table style="margin-right:10px;">
                 <tr>
-                    <td rowspan="4"><pre id="sword_without_button"></pre></td>
+                    <td rowspan="4" id="sword_cell"><pre id="sword_without_button"></pre></td>
                     <td><span class="tooltip" id="inventory_key"></span></td>
                     <td><span class="tooltip" id="inventory_plate_armour"></span></td>
                     <td><span class="tooltip" id="inventory_horn_of_plenty"></td>
@@ -260,16 +276,16 @@
                 </tr>
             </table>
             
-            <span id="hardmode" style="visibility:hidden">If you want more challenge,<br/>you can play the hard mode <a href="http://aniwey.net/candies-hardmode/">here !</a></span>
+            <span id="hardmode" style="visibility:hidden;font-size:28px;"><br/><b>GO TO SCRABBLE AND SHOW HIM THIS MESSAGE!</b></span>
             </div>
             <div style="overflow:auto">
             
                 <span id="map_system">
             
-                    <button class="home_button" id="go_to_swamp" onClick="swamp.enter();" style="visibility:hidden; display:none">Go to the Swampy Swamp</button>
-                    <button class="home_button" id="go_to_hut" onClick="hut.enter();" style="visibility:hidden; display:none">Go to the sorceress' hut</button>
-                    <button class="home_button" id="go_to_forge" onClick="forge.enter();" style="visibility:hidden; display:none">Go to the forge</button>
-                    <button class="home_button" id="go_to_well" onClick="wishingWell.enter();" style="visibility:hidden; display:none">Go to the wishing well</button>
+                    <button class="home_button" id="go_to_swamp" onClick="swamp.enter();" style="visibility:hidden; display:none">Go to the <b><span style="color:#79ad36">Swampy Swamp</span></b></button>
+                    <button class="home_button" id="go_to_hut" onClick="hut.enter();" style="visibility:hidden; display:none">Go to the <b><span style="color:#79ad36">sorceress' hut</span></b></button>
+                    <button class="home_button" id="go_to_forge" onClick="forge.enter();" style="visibility:hidden; display:none">Go to the <b><span style="color:#79ad36">forge</span></b></button>
+                    <button class="home_button" id="go_to_well" onClick="wishingWell.enter();" style="visibility:hidden; display:none">Go to the <b><span style="color:#79ad36">wishing well</span></b></button>
                 
                     <pre id="map"></pre>
                     
@@ -294,12 +310,11 @@
                 
             <div style="float:left">
                 
-                <span id="sword"></span><br/>
-                <span id="mood"></span><br/>
+                <span id="mood"></span> <span id="sword"></span><br/><br>
                 
                 <span id="quest_form">
+                    <b>Destination:</b> <select id="quest_destination"></select><br/><br/> <!-- Quest list -->
                     <button class="home_button" id="quest_button" onClick="quest.begin(true);">Go for an epic quest!</button> <!-- "Go for an epic quest !" -->
-                    Destination : <select id="quest_destination"></select> <!-- Quest list -->
                 </span>
             
                 
@@ -375,11 +390,35 @@
         
         <div style="clear:both; font-size:12px;">
             <br/><br/><br/>
-            original <strong>candy box</strong> by <a href="http://aniwey.net/" target="_blank">aniwey</a> &copy; 2013 &mdash; 
-            modified by <a href="http://scrabblerocks.com/" target="_blank">scribscrab</a> &mdash; 
-            <a target="_blank" href="/ascii.html" target="_blank">ascii art credit</a> &mdash; 
-            <a target="_blank" href="/faq.html" target="_blank">faq</a>
+            original game by <a href="http://aniwey.net/" target="_blank">aniwey</a> &copy; 2013 &mdash; 
+            made awesomer &amp; campier with <span style="color:#79ad36">&hearts;</span> by <a href="http://scrabblerocks.com/" target="_blank">scribscrab</a> &mdash; 
+            <a target="_blank" href="ascii.html" target="_blank">ascii art credit</a> &mdash; 
+            <a target="_blank" href="faq.html" target="_blank">faq</a>
         </div>
-    
+        
+        <!-- Google Analytics -->
+        <script type="text/javascript">
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-1563964-36', 'scrabblerocks.com');
+          ga('send', 'pageview');
+        </script>
+        
+        <!-- gaug.es -->
+        <script type="text/javascript">
+          var _gauges = _gauges || [];
+          (function() {
+            var t   = document.createElement('script');
+            t.type  = 'text/javascript';
+            t.async = true;
+            t.id    = 'gauges-tracker';
+            t.setAttribute('data-site-id', '519000d2613f5d7f2700021d');
+            t.src = '//secure.gaug.es/track.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(t, s);
+          })();
+        </script>
     </body>
 </html>

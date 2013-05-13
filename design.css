@@ -1,6 +1,24 @@
 body {
-    background-color: #FFFFFF;
+    background-color:#ffffff;
     overflow-y:scroll;
+    font-size:16px;
+    /* disable text highlight */
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    cursor:default;
+}
+
+pre {
+    font-size:14px;
+}
+
+a {
+    color:#000000;
+    font-weight:bold;
+}
+
+a:hover {
+    color:#79ad36;
 }
 
 #tabs {
@@ -38,7 +56,7 @@ body {
 }
 
 #tab_candy_box, #tab_quest, #tab_inventory, #tab_cauldron {
-    border: 2px solid transparent;
+    border:2px solid transparent;
 }
 
 #tab_quest, #tab_inventory, #tab_cauldron { 
@@ -50,14 +68,24 @@ body {
 }
 
 button {
+    background-color:#ffffff;
     border:1px solid #464c54;
-    margin-bottom:2px;
-    padding:2px;
+    padding:8px 14px;
+    cursor:pointer;
+    font-family:"proxima-nova",sans-serif;
+    font-size:15px;
+    margin:4px 0px;
 }
 
 button:hover {
-    border:2px solid #464c54;
-    padding:1px;
+    border:2px solid #79ad36;
+    padding:7px 13px;
+}
+
+button:disabled:hover {
+    cursor:default;
+    border:1px solid #464c54;
+    padding:8px 14px;
 }
 
 table {
@@ -91,31 +119,42 @@ table, th, td {
     display: block;
     position: absolute;
     padding: 5px;
-    margin: 5px;
+    margin: 0px 5px;
     color: #000;
     border: 1px solid #000000;
     background: #ffffff;
     font-family: monospace;
+    font-size: 13px;
 }
 
 span.tooltip:hover span {
     left: 70px;
-    width: 150px;
+    width: 300px;
 }
 
 button.tooltip:hover span {
     width: 300px;
 }
 
-.toggle {
-    font-size: 9px;
-    font-family: monospace;
-    background-color: white;
-    position: absolute;
-    top:5px; 
-    right:5px;
-}
-
 #tab_quest_left_panel {
     margin-right:15px;
+}
+
+div#tab_inventory table {
+    width:650px;
+}
+
+div#tab_inventory table td {
+    padding:2px 2px 2px 16px;
+    width:115px;
+}
+
+div#tab_inventory table td#sword_cell {
+    width:150px !important;
+}
+
+div#tab_quest button.potion_quest_button {
+    width:160px;
+    height:34px;
+    text-align:left;
 }

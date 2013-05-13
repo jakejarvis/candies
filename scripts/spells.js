@@ -8,9 +8,9 @@ var spells = {
     // Functions
     onload : function(){
         // We add the spells
-        this.addSpell("Candies, faster candies !", this.getFasterCandiesPrice.bind(this), this.fasterCandies.bind(this), "Congratulations ! You will now gain more candies each second !", []);
-        this.addSpell("Candies, more candies !", this.getMoreCandiesPrice.bind(this), this.moreCandies.bind(this), "///", []);
-        this.addSpell("Sword, better sword !", this.getBetterSwordPrice.bind(this), this.betterSword.bind(this), "///", ["specialSword"]);
+        this.addSpell("Candies, faster candies!", this.getFasterCandiesPrice.bind(this), this.fasterCandies.bind(this), "Congratulations! You will now gain more candies each second!", []);
+        this.addSpell("Candies, more candies!", this.getMoreCandiesPrice.bind(this), this.moreCandies.bind(this), "///", []);
+        this.addSpell("Sword, better sword!", this.getBetterSwordPrice.bind(this), this.betterSword.bind(this), "///", ["specialSword"]);
     
         // We sort the list
         this.sortListDependingOnPrice();
@@ -52,13 +52,13 @@ var spells = {
         // And we change the hut's speech by ourselves
         switch(sword.name){
             case "Sword of Life":
-                hut.setSpeech("Your Sword of Life will now drain more energy from your enemies.");
+                hut.setSpeech("Your <b><span style=\"color:#79ad36\">Sword of Life</span></b> will now drain more energy from your enemies.");
             break;
             case "Sword of Flames":
-                hut.setSpeech("Your Sword of Flames is now more powerful.")
+                hut.setSpeech("Your <b><span style=\"color:#79ad36\">Sword of Flames</span></b> is now more powerful.")
             break;
             case "Sword of Summoning":
-                hut.setSpeech("You can now summon " + sword.summonList[sword.getIndexOfBetterToSummon()].name + " !");
+                hut.setSpeech("You can now summon <b><span style=\"color:#79ad36\">" + sword.summonList[sword.getIndexOfBetterToSummon()].name + "</span></b>!");
             break;
         }
     },
@@ -70,7 +70,7 @@ var spells = {
         if(nbr > 300000) nbr = 300000;
         
         candies.setNbrOwned(candies.nbrOwned + nbr);
-        hut.setSpeech("Here's " + nbr + " candies for you !");
+        hut.setSpeech("Here's <b><span style=\"color:#79ad36\">" + nbr + "</span> candies</b> for you!");
     },
     
     nextFasterCandiesFiboStep : function(){

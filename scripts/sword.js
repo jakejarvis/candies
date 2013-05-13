@@ -187,7 +187,7 @@ if(potions.list.health.nbrOwned > 0){
         }
         
         // Other stuff
-        htmlInteraction.setInnerHtml("sword", "You currently have a " + this.name + ".");
+        htmlInteraction.setInnerHtml("sword", "You currently have a <b><span style=\"color:#79ad36\">" + this.name + "</span></b>.");
         quest.defineMood();
         htmlInteraction.setElementVisibility("sword", true);
         htmlInteraction.setElementVisibility("quest_form", true);
@@ -200,7 +200,7 @@ if(potions.list.health.nbrOwned > 0){
       .\n\
      / \\\n\
      | |\n\
-     | |  <button class=\"home_button\" id=\"buy_wooden_sword\" onClick=\"sword.buyThisSword(\'wooden sword\');\">Buy the wooden sword (150 candies)</button>\n\
+     | |  <button class=\"home_button\" id=\"buy_wooden_sword\" onClick=\"sword.buyThisSword(\'wooden sword\');\">Buy the <b>wooden sword</b> (<b><span style=\"color:#79ad36\">100</span> candies</b>)</button>\n\
      | |\n\
      | |\n\
    `--8--\'\n\
@@ -222,7 +222,7 @@ if(potions.list.health.nbrOwned > 0){
       .\n\
      /:\\\n\
      |||\n\
-     |||  <button class=\"home_button\" id=\"buy_copper_sword\" onClick=\"sword.buyThisSword(\'copper sword\');\">Buy the copper sword (300 candies)</button>\n\
+     |||  <button class=\"home_button\" id=\"buy_copper_sword\" onClick=\"sword.buyThisSword(\'copper sword\');\">Buy the <b>copper sword</b> (<b><span style=\"color:#79ad36\">300</span> candies</b>)</button>\n\
      |||\n\
      |||\n\
    `--8--\'\n\
@@ -244,7 +244,7 @@ if(potions.list.health.nbrOwned > 0){
       /|\n\
      |\\|\n\
      |||\n\
-     |||  <button class=\"home_button\" id=\"buy_iron_sword\" onClick=\"sword.buyThisSword(\'iron sword\');\">Buy the iron sword (500 candies)</button>\n\
+     |||  <button class=\"home_button\" id=\"buy_iron_sword\" onClick=\"sword.buyThisSword(\'iron sword\');\">Buy the <b>iron sword</b> (<b><span style=\"color:#79ad36\">500</span> candies</b>)</button>\n\
      |||\n\
      |||\n\
      |||\n\
@@ -272,7 +272,7 @@ if(potions.list.health.nbrOwned > 0){
      |\\\n\
      |/|\n\
      |||\n\
-     [|]  <button class=\"home_button\" id=\"buy_silver_sword\" onClick=\"sword.buyThisSword(\'silver sword\');\">Buy the silver sword (1000 candies)</button>\n\
+     [|]  <button class=\"home_button\" id=\"buy_silver_sword\" onClick=\"sword.buyThisSword(\'silver sword\');\">Buy the <b>silver sword</b> (<b><span style=\"color:#79ad36\">1000</span> candies</b>)</button>\n\
      |||\n\
      [|]\n\
      |||\n\
@@ -300,7 +300,7 @@ if(potions.list.health.nbrOwned > 0){
       /|\n\
      |;|\n\
      |:|\n\
-     |;|  <button class=\"home_button\" id=\"buy_diamond_sword\" onClick=\"sword.buyThisSword(\'diamond sword\');\">Buy the diamond sword (2000 candies)</button>\n\
+     |;|  <button class=\"home_button\" id=\"buy_diamond_sword\" onClick=\"sword.buyThisSword(\'diamond sword\');\">Buy the <b>diamond sword</b> (<b><span style=\"color:#79ad36\">2000</span> candies</b>)</button>\n\
      |:|\n\
      |;|\n\
      |:|\n\
@@ -326,7 +326,7 @@ if(potions.list.health.nbrOwned > 0){
      |D|\n\
      `0\'",
      
-    asciiCandyDiamondSword : "Candy diamond sword\n\n\
+    asciiCandyDiamondSword : "Candy diamond\nsword\n\n\
         /|\n\
        |o|\n\
        |:|\n\
@@ -341,7 +341,7 @@ if(potions.list.health.nbrOwned > 0){
        |D|\n\
        'O'",
     
-    asciiPolishedCandyDiamondSword : "Polished candy diamond sword\n\n\
+    asciiPolishedCandyDiamondSword : "Polished candy\ndiamond sword\n\n\
             /|\n\
            |o|\n\
            | |\n\
@@ -371,7 +371,7 @@ if(potions.list.health.nbrOwned > 0){
       |~|\n\
       'O'",
     
-    asciiSharpChocolateSword : "Sharp chocolate sword\n\n\
+    asciiSharpChocolateSword : "Sharp chocolate\nsword\n\n\
          /|\n\
         |^|\n\
         |~|\n\
@@ -447,7 +447,7 @@ if(potions.list.health.nbrOwned > 0){
      |*&|\n\
      \'42\'",
      
-    asciiSwordOfLiflamesummoning : "Sword of Liflamesummoning\n\n\
+    asciiSwordOfLiflamesummoning : "Sword of\nLiflamesummoning\n\n\
       _    _\n\
      ( `\\/' )\n\
      `\\    /'\n\

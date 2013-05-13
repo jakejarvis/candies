@@ -80,7 +80,7 @@ var developperComputer = {
     },
     
     makeDev : function(){
-        return land.createMob("DEV", 100000000000000, 100000000000000, "bugs", "The developper (hey, he made this game !)", [drops.createDrop("candies", 1000000)]);
+        return land.createMob("DEV", 100000000000000, 100000000000000, "bugs", "The developper (hey, he made this game!)", [drops.createDrop("candies", 1000000)]);
     },
     
     // Ascii

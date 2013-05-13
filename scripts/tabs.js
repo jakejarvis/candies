@@ -3,7 +3,6 @@ var tabs = {
 // Variables
     length : 0, // Number of tabs
     list : new Array(), // List of tabs buttons
-    animation : "slide", // Animation to do
     active : 0, // Number of active tab
     lastKeyPress : 0, // blbl
     
@@ -27,14 +26,7 @@ var tabs = {
     
     // Show the tab ( slideDown/show based on the animSlide variable )
     show : function(n){
-        switch(this.animation){
-            case "slide":
-                this.getTab(this.list[n].button).slideDown(200);
-            break;
-            default:
-                this.getTab(this.list[n].button).show();
-            break;
-        }
+        this.getTab(this.list[n].button).slideDown(200);
     },
     
     // Hide the tab ( slideUp/hide based on the animSlide variable )
@@ -43,38 +35,7 @@ var tabs = {
             objects.leave();
         }
         
-        switch(this.animation){
-            case "slide":
-                this.getTab(this.list[n].button).slideUp(200);
-            break;
-            default:
-                this.getTab(this.list[n].button).hide();
-            break;
-        }
-    },
-
-    // Toggle the animation ( slideDown|slideUp / show|hide )
-    toggle : function(){
-        switch(this.animation){
-            case "slide":
-                this.setAnimation("none");
-            break;
-            default:
-                this.setAnimation("slide");
-            break;
-        }
-    },
-    
-    setAnimation : function(anim){
-    this.animation = anim;
-        switch(this.animation){
-            case "slide":
-                $(".toggle").html("Tabs : Slide Effect");
-            break;
-            default:
-                $(".toggle").html("Tabs : No Animation");
-            break;
-        }
+        this.getTab(this.list[n].button).slideUp(200);
     },
     
     // Select the tab
@@ -170,11 +131,6 @@ var tabs = {
         });
     },
     
-    bindToggle : function() {
-        $(".toggle").bind('click', function() { tabs.toggle(); });
-        $(".toggle").html("Tabs : Slide Effect");
-    },
-    
     //On Load
     onload : function(){
         // Get the number of tabs
@@ -196,7 +152,5 @@ var tabs = {
         
         // Bind key
         this.bindKey();
-    
-        this.bindToggle();
     }
 };

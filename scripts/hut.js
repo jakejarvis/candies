@@ -17,7 +17,7 @@ var hut = {
     
     acceptProposition : function(){
         this.setStep(2);
-        this.setSpeech("See by yourself. My prices are high, but the spells are great! (1 klp means 1000 lollipops)");
+        this.setSpeech("See for yourself. My prices are high, but the spells are great!");
         this.updateOnPage();
     },
     
@@ -48,7 +48,7 @@ var hut = {
   '-.|_/          \\_|.-'\
 "
     
-                text += "\n\n<button id=\"hut_throw_lollipops\" onClick=\"hut.throwLollipops();\">Throw 10 lollipops inside the hut</button>";
+                text += "\n\n<button id=\"hut_throw_lollipops\" onClick=\"hut.throwLollipops();\">Throw <b><span style=\"color:#79ad36\">10</span> lollipops</b> inside the hut</button>";
             break;
             default:
                 text += "\
@@ -78,7 +78,7 @@ var hut = {
             break;
         }
         
-        text += "\n\n<button onClick=\"hut.leave();\">Leave the hut</button>";
+        text += "\n\n<button onClick=\"hut.leave();\">Leave the sorceress' hut</button>";
         
         htmlInteraction.setInnerHtml("map", text);
         
@@ -90,13 +90,13 @@ var hut = {
         var text = "\n";
         
         for(var i = 0; i < spells.list.length; i++){
-            text += "\n<button id=\"hut_spell_" + i + "\" onClick=\"hut.useSpell(" + i + ");\">" + spells.list[i].name + " (" + spells.list[i].price()/1000 + " klp)</button>";
+            text += "\n<button id=\"hut_spell_" + i + "\" onClick=\"hut.useSpell(" + i + ");\">" + spells.list[i].name + " (<b><span style=\"color:#79ad36\">" + numberWithCommas(spells.list[i].price()) + "</span> lollipops</b>)</button>";
         }
         
         // We maybe add the surpass yourself button
         if(quest.maxLandOrder == 7 && yourself.canSurpass == false){
             text += "\n";
-            text += "\n<button id=\"hut_surpass\" onClick=\"hut.surpass();\">Surpass yourself (" + 1000 + " klp)</button>";
+            text += "\n<button id=\"hut_surpass\" onClick=\"hut.surpass();\">Surpass yourself (" + numberWithCommas(1000000) + " lollipops)</button>";
         }
         
         return text;
@@ -105,7 +105,7 @@ var hut = {
     surpass : function(){
         if(lollipops.nbrOwned >= 1000000){
             lollipops.setNbrOwned(lollipops.nbrOwned - 1000000);
-            this.setSpeech("You are now able to surpass yourself. Congratulations !");
+            this.setSpeech("You are now able to surpass yourself. Congratulations!");
             yourself.setCanSurpass(true);
             this.updateOnPage();
         }
