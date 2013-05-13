@@ -1,0 +1,2 @@
+.DS_Store
+*.txt       # don't wanna push the saves
