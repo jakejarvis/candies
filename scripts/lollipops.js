@@ -13,7 +13,7 @@ var lollipops = {
             this.setNbrOwned(this.nbrOwned + 1);
             this.setNbrBought(this.nbrBought + 1);
             this.setNbrInStock(this.nbrInStock - 1);
-            shop.setMerchantSpeech("Thanks for buyin'! Here's your " + this.getFlavour() + " flavored lollipop.");
+            shop.setMerchantSpeech("Thanks for buyin'! Here's your " + this.getFlavour() + " shout out.");
         }
     },
     
@@ -23,16 +23,16 @@ var lollipops = {
             this.setNbrOwned(this.nbrOwned + 10);
             this.setNbrBought(this.nbrBought + 10);
             this.setNbrInStock(this.nbrInStock - 10);
-            shop.setMerchantSpeech("Thanks for buyin'! Here's your ten lollipops. Various flavors.");
+            shop.setMerchantSpeech("Thanks for buyin'! Here's your ten shout outs. Various kinds.");
         }
-        else shop.setMerchantSpeech("I'm sorry, we don't have enough lollipops in stock to sell you ten of them. We currently have " + this.nbrInStock + " lollipops in stock.");
+        else shop.setMerchantSpeech("I'm sorry, we don't have enough shout outs in stock to sell you ten of them. We currently have " + this.nbrInStock + " shout outs in stock.");
     },
     
     getFlavour : function(){
-        var fruits = ["apple", "strawberry", "grape", "blackberry", "orange", "watermelon", "banana", "pear", "cherry", "raspberry", "mandarin", "lime", "peach", "apricot", "blueberry", "kiwifruit", "lychee", "pineapple"];
+        var fruits = ["classic", "robot", "Kool-Aid Man", "programming", "race car", "roller coaster", "the golf clap one" ];
         var uncommon = ["chocolate", "cookie", "pancake", "water", "tomato", "kitten"];
-        var unrealistic = ["leprechaun", "korrigan", "lollipop", "snow", "storm", "door", "dracula"];
-        var abstract = ["gluttony", "desire", "love", "causality", "fatalism", "cuteness"];
+        var unrealistic = ["leprechaun", "lollipop", "snow", "storm", "door", "dracula"];
+        var abstract = ["gluttony", "friendship", "puzzle", "fine art", "cuteness"];
         
         var chances = [];
         if(this.nbrBought < 10) chances = [1];
@@ -72,9 +72,9 @@ var lollipops = {
     
     setNbrOwned : function(value){
         this.nbrOwned = value;
-        if(this.nbrOwned != 1) htmlInteraction.setInnerHtml("lollipops", "You have <b><span style=\"color:#79ad36\">" + numberWithCommas(this.nbrOwned) + "</span> lollipops</b>!");
-        else htmlInteraction.setInnerHtml("lollipops", "You have <b><span style=\"color:#79ad36\">1</span> lollipop</b>!");
-        htmlInteraction.setElementVisibility("lollipops", true);
+        if(this.nbrOwned != 1) htmlInteraction.setInnerHtml("shout outs", "You have <b><span style=\"color:#79ad36\">" + numberWithCommas(this.nbrOwned) + "</span> shout outs</b>!");
+        else htmlInteraction.setInnerHtml("shout outs", "You have <b><span style=\"color:#79ad36\">1</span> shout out</b>!");
+        htmlInteraction.setElementVisibility("shout outs", true);
         buttons.checkLollipops();
         cauldron.updateActionsInfoOnPage();
         computer.updateLollipops();
