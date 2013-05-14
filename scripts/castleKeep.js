@@ -324,7 +324,7 @@ var castleKeep = {
     },
     
     makeDragon : function(){
-        return land.createMob(",((", 1000, 1000, "flames", "A dragon !! Kill him and the castle will be yours.", []);
+        return land.createMob(",((", 500, 500, "flames", "A dragon !! Kill him and the castle will be yours.", []);
     },
     
     asciiDragon :
