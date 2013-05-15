@@ -1,4 +1,3 @@
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -284,26 +283,27 @@
                 <button class="home_button" id="coat" onClick="sword.coat();" style="visibility:hidden; display:none">Use <b><span style="color:#79ad36">1</span> chocolate bar</b> to coat your sword with melted chocolate and make it incredibly powerful</button><br/>
 
 <pre id="shop" style="visibility:hidden; float:left;">
-        <span onclick="shop.clickedOnHat();">.---.</span>
-       <span onclick="shop.clickedOnHat();">|   '.|  __</span>
-       <span onclick="shop.clickedOnHat();">| ___.--'  )</span>
-     _.-'_` _%%%_/
-  .-'%%% a: a %%%
-      %%  L   %%_
-      _%\'-' |  /-.__
-   .-' / )--' #/     '\
-  /'  /  /---'(    :   \
- /   |  /( /|##|  \     |
-/   ||# | / | /|   \    \
-|   ||##| I \/ |   |   _|
-|   ||: | o  |#|   |  / |
-|   ||  / I  |:/  /   |/
-|   ||  | o   /  /    /
-|   \|  | I  |. /    /
- \  /|##| o  |.|    /
-  \/ \::|/\_ /  ---'|
-  
-      Uncle Snake
+       <span onclick="shop.clickedOnHat();">%%%%</span>
+     <span onclick="shop.clickedOnHat();">%%%%%%%%</span>
+    <span onclick="shop.clickedOnHat();">%%%_` _%%%</span>
+    %% a: a %%
+    %%  L   %%
+     %\'=  /_% 
+   __//---'|/___
+ -'   \   //    '-
+/      \__/       \
+|  _    ||    _   |
+|  |    ||    |   |
+|  |   _\/_   |   |
+|  |  |    |  |  -|
+|_ |  |____|  |   |
+\  \         /   /
+ \  \       /   /
+  \__|-----|___/ 
+  |    [       |
+
+
+    Uncle Snake
     
 <span id="merchant_speech"></span>
 </pre>
