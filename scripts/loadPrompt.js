@@ -1,7 +1,9 @@
 function loadPrompt() {
-    var code = prompt("Please enter your five-character code.", "");
+    alert("Not supported on this instance.");
+
+    //var code = prompt("Please enter your five-character code.", "");
     
-    if(code != null) {
-        window.location = 'index.php?pass=' + code;
-    }
+    //if(code != null) {
+    //    window.location = 'index.php?pass=' + code;
+    //}
 }

@@ -119,7 +119,7 @@
         <link rel="shortcut icon" href="favicon.ico">
         
         <!-- Jquery and tab stuff -->
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script>window.jQuery || document.write(unescape('%3Cscript type="text/javascript" src="scripts/jquery-1.9.1.min.js"%3E%3C/script%3E'))</script> <!-- Google CDN Fallback -->
         <script type="text/javascript" src="scripts/tabs.js"></script>
         
@@ -133,8 +133,7 @@
         <script type="text/javascript" src="scripts/speech.js"></script>
         
         <!-- Loading and saving --> 
-        <script type="text/javascript" src="scripts/loadPrompt.js"></script> 
-        <?php if(isset($_GET['pass'])) { ?><script type="text/javascript" src="scripts/load.php?pass=<?php echo $_GET['pass'] ?>"></script><?php } ?>
+        <!-- <script type="text/javascript" src="scripts/loadPrompt.js"></script> -->
 		
         <!-- Buttons -->
         <script type="text/javascript" src="scripts/buttons.js"></script>
@@ -195,12 +194,11 @@
         <script type="text/javascript" src="scripts/poke.js"></script>
         
         <!-- The main js file which calls the other ones -->
-        <script type="text/javascript" src="scripts/main.php<?php if(isset($_GET['pass'])) echo "?pass=" . $_GET['pass'] ?>"></script>
-        <script type="text/javascript" src="scripts/save.js"></script>
+        <script type="text/javascript" src="scripts/main.js"></script>
+        <!-- <script type="text/javascript" src="scripts/save.js"></script> -->
         
         <!-- Prettier fonts -->
-        <script type="text/javascript" src="http://use.typekit.com/zhe6udw.js"></script>
-        <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500" rel="stylesheet">
         
         <!-- Design -->
         <link rel="stylesheet" type="text/css" href="design.css"/>
@@ -261,7 +259,7 @@
             <!-- Left panel : some stats, and the merchant -->
             
             <div>
-                <button class="home_button" id="saveButton" onClick="save();" style="visibility:visible"><b>Save</b></button>&nbsp;&nbsp;&nbsp;<button class="home_button" id="loadButton" onClick="loadPrompt();" style="visibility:visible"><b>Load</b></button><span id="save"></span><br/><br/>
+                <!--<button class="home_button" id="saveButton" onClick="save();" style="visibility:visible" disabled><b>Save</b></button>&nbsp;&nbsp;&nbsp;<button class="home_button" id="loadButton" onClick="loadPrompt();" style="visibility:visible" disabled><b>Load</b></button><span id="save"></span><br/><br/>-->
                 <span id="candies"></span><br/>
                 <pre id="candies_converter" style="display:none">
   |
@@ -494,34 +492,19 @@
         <div style="clear:both; font-size:12px;">
             <br/><br/><br/>
             original game by <a href="http://aniwey.net/" target="_blank">aniwey</a> &copy; 2013 &mdash; 
-            made awesomer &amp; campier with <span style="color:#79ad36">&hearts;</span> by <a href="http://scrabblerocks.com/" target="_blank">scribscrab</a> &mdash; 
+            made awesomer &amp; campier with <span style="color:#79ad36">&hearts;</span> by <a href="https://jarv.is/" target="_blank">scrabble</a> &mdash; 
             <a target="_blank" href="ascii.html" target="_blank">ascii art credit</a> &mdash; 
             <a target="_blank" href="faq.html" target="_blank">faq</a>
         </div>
         
         <!-- Google Analytics -->
-        <script type="text/javascript">
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-          ga('create', 'UA-1563964-36', 'scrabblerocks.com');
-          ga('send', 'pageview');
-        </script>
-        
-        <!-- gaug.es -->
-        <script type="text/javascript">
-          var _gauges = _gauges || [];
-          (function() {
-            var t   = document.createElement('script');
-            t.type  = 'text/javascript';
-            t.async = true;
-            t.id    = 'gauges-tracker';
-            t.setAttribute('data-site-id', '519000d2613f5d7f2700021d');
-            t.src = '//secure.gaug.es/track.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(t, s);
-          })();
+        <script>
+        var _gaq = [['_setAccount', 'UA-1563964-36'], ['_trackPageview']];
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
         </script>
     </body>
 </html>

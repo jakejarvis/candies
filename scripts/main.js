@@ -40,7 +40,6 @@ var main = {
         quest.onloadAfter(); // This must be call after other loads because it needs the different quests to be loaded
         
         // Loading a save
-        <?php if(isset($_GET['pass'])) { ?>load.loadSave();<?php } ?>
 		        
         // First actions
         window.setInterval(this.oneTenthSecInterval.bind(this), 100);

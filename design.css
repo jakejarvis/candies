@@ -1,6 +1,7 @@
 body {
     background-color:#ffffff;
     overflow-y:scroll;
+    font-family: 'Montserrat', sans-serif;
     font-size:16px;
     /* disable text highlight */
     -moz-user-select: none;
@@ -39,7 +40,7 @@ a:hover {
   	padding:8px 14px 8px 14px;
   	text-decoration:none;
   	font-size:9px;
-  	font-family:Verdana, Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif;
   	font-weight:bold;
   	text-transform:uppercase;
   	border:1px solid #464c54;
@@ -72,7 +73,7 @@ button {
     border:1px solid #464c54;
     padding:8px 14px;
     cursor:pointer;
-    font-family:"proxima-nova",sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size:15px;
     margin:4px 0px;
 }

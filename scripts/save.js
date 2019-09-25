@@ -1,6 +1,9 @@
-var code = "";
+//var code = "";
 
-function save() {             
+function save() {   
+  alert("Not supported on this instance.");
+  
+  /*
   $.ajax({
     type: "POST",
     url: "scripts/save.php",
@@ -111,4 +114,5 @@ function save() {
     }
   });
   return false;
+  */
 }
